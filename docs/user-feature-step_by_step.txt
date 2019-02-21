@@ -1,4 +1,4 @@
-X1- rails g model user first_name last_name email password
+X1- rails g model user first_name last_name email password_digest
 
 
 X2- rake db:migrate
