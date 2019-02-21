@@ -40,9 +40,12 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-amount="<%= cart_subtotal_cents %>"
           data-name="Jungle"
-          data-description="Khurram Virani's Jungle Order"
+          <%# data-description="Khurram Virani's Jungle Order"
           data-locale="auto"
-          data-email="kvirani@gmail.com"
+          data-email="kvirani@gmail.com" %>
+          data-description="Tony Kieling's Jungle Order"
+          data-locale="auto"
+          data-email="tony.kieling@gmail.com"
           data-currency="cad">
         </script>
       <% end %>
