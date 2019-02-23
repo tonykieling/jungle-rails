@@ -53,6 +53,10 @@ class OrdersController < ApplicationController
       )
     end
     order.save!
+    
+    #send email after confirm the purchase and write it into db
+    SendEmail.send_email(order).deliver_now
+
     order
   end
 
