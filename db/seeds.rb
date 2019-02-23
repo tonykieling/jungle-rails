@@ -21,6 +21,7 @@ end
 
 # Let's do this ...
 
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -28,6 +29,7 @@ puts "Finding or Creating Categories ..."
 cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
+
 
 ## PRODUCTS
 
@@ -132,5 +134,56 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+
+## USERS
+puts "Re-creating Users ..."
+
+User.destroy_all  # cleanup the User's table
+
+# add new users and set a encrypted password
+User.create first_name:"Tony", last_name:"Kieling", email:"tony@kieling", password_digest:"p"
+u = User.last
+u.password = "k"
+u.password_confirmation = "k"
+u.save
+
+User.create first_name:"Simone", last_name:"Kieling", email:"simone@kieling", password_digest:"p"
+u = User.last
+u.password = "k"
+u.password_confirmation = "k"
+u.save
+
+User.create first_name:"Third", last_name:"User", email:"third@user", password_digest:"p"
+u = User.last
+u.password = "k"
+u.password_confirmation = "k"
+u.save
+
+User.create first_name:"New", last_name:"User", email:"new@user", password_digest:"p"
+u = User.last
+u.password = "k"
+u.password_confirmation = "k"
+u.save
+
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all  # cleanup the table
+
+# add new reviews
+Review.create product_id: 1, user_id: 1, description: "Awesome product", rating: 5
+Review.create product_id: 2, user_id: 1, description: "eh!", rating: 2
+Review.create product_id: 1, user_id: 2, description: "good", rating: 4
+Review.create product_id: 2, user_id: 2, description: "very good", rating: 5
+Review.create product_id: 1, user_id: 3, description: "ok", rating: 3
+Review.create product_id: 2, user_id: 3, description: "I recomend", rating: 5
+Review.create product_id: 1, user_id: 4, description: "Could be better", rating: 3
+Review.create product_id: 3, user_id: 1, description: "Awesome!", rating: 5
+Review.create product_id: 4, user_id: 2, description: "That's ok", rating: 4
+Review.create product_id: 3, user_id: 2, description: "not good", rating: 1
+Review.create product_id: 4, user_id: 1, description: "nope", rating: 2
+Review.create product_id: 1, user_id: 4, description: "Amazing!!", rating: 5
 
 puts "DONE!"
