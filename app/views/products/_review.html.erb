@@ -1,6 +1,5 @@
 <% reviews = Review.where(product_id: @product.id) %>
 <% reviews.each do |review| %>
-<%# <% byebug %> 
   <tr>
     <td>
       <%= review.description %>

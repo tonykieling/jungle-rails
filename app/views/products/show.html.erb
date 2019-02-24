@@ -35,9 +35,18 @@
             </tr>
           </thead>
           <tbody>
-              <%= render "review" %>
+
+            <%= render "review" %>
+
           </tbody>
         </table>
+
+          <%= form_for :review, url: "/products/#{@product.id}/reviews" do |f| %>
+          Comment:<br><%= f.text_area :description %><br>
+          Rating:<%= f.select :rating, options_for_select(["1", "2", "3","4","5"])%><br>
+          <%= f.submit "Submit" %>
+          <%  end %>
+
       </div>
     </div>
 
