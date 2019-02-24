@@ -23,6 +23,21 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <div>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Comment</th> 
+              <th>Rating</th>
+              <th>Date</th>
+              <th>User_id</th>
+            </tr>
+          </thead>
+          <tbody>
+              <%= render "review" %>
+          </tbody>
+        </table>
       </div>
     </div>
 
