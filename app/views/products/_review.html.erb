@@ -1,7 +1,5 @@
-<%# @product.reviews.reverse.each do |review| %>
+<% @product.reviews.reverse.each do |review| %>
 
-<% reviews = Review.where(product_id: @product.id) %>
-<% reviews.each do |review| %>
   <tr>
     <td>
       <%= review.description %>
@@ -15,6 +13,15 @@
     <td>
       <% user_temp = User.where(id: review.user_id) %>
       <%= "#{user_temp.first.first_name} #{user_temp.first.last_name}" %>
-    </td>        
+
+    <%if current_user%>
+      <%if current_user == user_temp.first%>
+        <div class="btn btn-danger btn-sm">
+          <%#= link_to "Review", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        </div>
+      <%end%>
+    <%end%>
+    </td>
   </tr>
+
 <% end %>

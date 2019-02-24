@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  before_action :require_login  
+
+
   def create
 
     # check if user is logged, otherwise send them to login page
@@ -26,11 +29,26 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    puts "DELETE"
+  end
+
+
+  private
+
   def review_params
     params.require(:review).permit(
       :description,
       :rating
     )
   end
+
+
+  def require_login
+    unless logged_in?
+      redirect_to '/login', notice: 'Login first, please'
+    end
+  end
+
 
 end
