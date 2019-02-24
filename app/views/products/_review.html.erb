@@ -1,3 +1,5 @@
+<%# @product.reviews.reverse.each do |review| %>
+
 <% reviews = Review.where(product_id: @product.id) %>
 <% reviews.each do |review| %>
   <tr>
