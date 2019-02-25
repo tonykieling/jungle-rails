@@ -42,7 +42,6 @@
         </table>
 
           <% if current_user%>
-          <%#byebug%>
             <%= form_for :review, url: "/products/#{@product.id}/reviews" do |f| %>
             Comment:<br><%= f.text_area :description %> <br>
             Rating:<%= f.select :rating, options_for_select(["1", "2", "3","4","5"])%> <br>

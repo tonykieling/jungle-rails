@@ -16,8 +16,8 @@
 
     <%if current_user%>
       <%if current_user == user_temp.first%>
-        <div class="btn btn-danger btn-sm">
-          <%#= link_to "Review", method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        <div class="btn btn-danger btn-xs">
+          <%= link_to "Delete", product_review_path(@product.id , review.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
         </div>
       <%end%>
     <%end%>

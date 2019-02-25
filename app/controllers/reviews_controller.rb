@@ -30,7 +30,11 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    puts "DELETE"
+    # byebug
+    @review = Review.find(params[:id])
+    @review.destroy
+
+    redirect_to product_path(id: params[:product_id]), notice: "Delete success"
   end
 
 
@@ -45,7 +49,9 @@ class ReviewsController < ApplicationController
 
 
   def require_login
-    unless logged_in?
+    # unless logged_in?
+    unless current_user
+      byebug
       redirect_to '/login', notice: 'Login first, please'
     end
   end
