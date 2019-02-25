@@ -10,11 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :products, only: [:index, :show] do
-    # post  :reviews, only: [:create], => "reviews#create"
-    resources :reviews, only: [:create, :destroy]
-    # post "/reviews" => "reviews#create"
-    # post "/reviews" => "reviews#remove"
-    # post    :remove_review
+    resources :reviews, only: [:create, :destroy]   #route to add and remove reviews
   end
 
   resources :categories, only: [:show]

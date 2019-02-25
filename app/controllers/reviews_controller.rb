@@ -49,7 +49,6 @@ class ReviewsController < ApplicationController
 
 
   def require_login
-    # unless logged_in?
     unless current_user
       byebug
       redirect_to '/login', notice: 'Login first, please'
