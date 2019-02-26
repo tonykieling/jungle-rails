@@ -46,8 +46,3 @@ RSpec.describe Product, type: :model do
   end
 
 end
-
-# validates :name, presence: true
-# validates :price, presence: true
-# validates :quantity, presence: true
-# validates :category, presence: true
